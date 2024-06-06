@@ -3,6 +3,7 @@ package it.cynerea.project.be.model.dao;
 import it.cynerea.project.be.model.dao.relation.CharacterItem;
 import it.cynerea.project.be.model.dao.relation.CharacterOrder;
 import it.cynerea.project.be.model.dao.relation.CharacterSkill;
+import it.cynerea.project.be.model.dao.relation.MasterCreature;
 import it.cynerea.project.be.model.enums.Affinity;
 import it.cynerea.project.be.model.enums.Gender;
 import jakarta.persistence.*;
@@ -292,15 +293,15 @@ public class Character {
     private Set<Log> logs = new LinkedHashSet<>();
 
     @OneToMany(mappedBy = "id.operator", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Log> operationLog = new LinkedHashSet<>();
-
-    @OneToOne(mappedBy = "character", cascade = CascadeType.ALL, orphanRemoval = true)
-    private IpAddressId ipAddresses;
+    private Set<Log> operationLogs = new LinkedHashSet<>();
 
     @OneToMany(mappedBy = "sender", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Missive> sentMissives = new LinkedHashSet<>();
 
     @OneToMany(mappedBy = "sender", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Missive> receiveMissives = new LinkedHashSet<>();
+
+    @OneToMany(mappedBy = "id.master", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<MasterCreature> masterCreatures = new LinkedHashSet<>();
 
 }
