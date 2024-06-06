@@ -36,9 +36,9 @@ public class Post {
     private Quest quest;
 
     @Temporal(TemporalType.TIME)
-    @Column(name = "last_access")
+    @Column(name = "date")
     @JdbcTypeCode(SqlTypes.TIME)
-    private Date lastAccess =  new Date();
+    private Date date =  new Date();
 
     @Column(name = "is_report", nullable = false)
     @JdbcTypeCode(SqlTypes.BIT)
