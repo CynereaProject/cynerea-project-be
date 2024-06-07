@@ -24,5 +24,5 @@ public interface CapacityMapper {
     @Mapping(target = "maxLevel", source = "maxLevel")
     CapacityResponse daoToResponse(Capacity capacity);
 
-    Set<CapacityResponse> daoListToResponseSet(List<Capacity> all);
+    Set<CapacityResponse> daoListToResponseSet(List<Capacity> capacityList);
 }
