@@ -1,7 +1,7 @@
 package it.cynerea.project.be.service;
 
-import it.cynerea.project.be.error.NotFoundException;
 import it.cynerea.project.be.error.BadRequestException;
+import it.cynerea.project.be.error.NotFoundException;
 import it.cynerea.project.be.mapper.AwakeningMapper;
 import it.cynerea.project.be.model.dao.Awakening;
 import it.cynerea.project.be.model.dto.request.AwakeningRequest;
@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class AwakeningService {
@@ -40,6 +41,10 @@ public class AwakeningService {
     public AwakeningResponse getById(Integer id) {
         Awakening awakening = findById(id);
         return awakeningMapper.daoToResponse(awakening);
+    }
+
+    public Set<AwakeningResponse> getAll() {
+        return awakeningMapper.daoListToResponseSet(awakeningRepository.findAll());
     }
 
     public void delete(Integer id) {

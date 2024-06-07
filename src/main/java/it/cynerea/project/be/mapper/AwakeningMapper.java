@@ -5,17 +5,18 @@ import it.cynerea.project.be.model.dto.request.AwakeningRequest;
 import it.cynerea.project.be.model.dto.response.AwakeningResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.Named;
 
+import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Mapper(componentModel = "spring")
 public interface AwakeningMapper {
 
+    @Mapping(target = "id", ignore = true)
     @Mapping(target = "name", source = "name")
     @Mapping(target = "description", source = "description")
     @Mapping(target = "img", source = "img")
+    @Mapping(target = "skills", ignore = true)
     Awakening requestToDao(AwakeningRequest request);
 
     @Mapping(target = "id", source = "id")
@@ -25,6 +26,8 @@ public interface AwakeningMapper {
     //@Mapping(source = "skills", target = "skills", qualifiedByName = "skills")
     @Mapping(target = "skills", ignore = true)
     AwakeningResponse daoToResponse(Awakening awakening);
+
+    Set<AwakeningResponse> daoListToResponseSet(List<Awakening> awakeningList);
 
     /*@Named("skills")
     default Set<AwakeningSkillDto> skillsDaoToSkillDto(Set<AwakeningSkill> skills){

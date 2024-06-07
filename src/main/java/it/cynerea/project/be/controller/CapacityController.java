@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Set;
+
 @RestController
 @RequestMapping("/capacity")
 @Tag(name = "Capacity")
@@ -30,6 +32,12 @@ public class CapacityController {
     @GetMapping(value = "/getById/{id}")
     public ResponseEntity<CapacityResponse> getById(@PathVariable Integer id) {
         CapacityResponse response = capacityService.getById(id);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping(value = "/getAll")
+    public ResponseEntity<Set<CapacityResponse>> getAll() {
+        Set<CapacityResponse> response = capacityService.getAll();
         return ResponseEntity.ok(response);
     }
 

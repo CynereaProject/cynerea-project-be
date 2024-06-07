@@ -1,7 +1,7 @@
 package it.cynerea.project.be.service;
 
-import it.cynerea.project.be.error.NotFoundException;
 import it.cynerea.project.be.error.BadRequestException;
+import it.cynerea.project.be.error.NotFoundException;
 import it.cynerea.project.be.mapper.CapacityMapper;
 import it.cynerea.project.be.model.dao.Capacity;
 import it.cynerea.project.be.model.dto.request.CapacityRequest;
@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class CapacityService {
@@ -38,7 +39,11 @@ public class CapacityService {
 
     public CapacityResponse getById(Integer id) {
         Capacity capacity = findById(id);
-        return capacityMapper.dtoToResponse(capacity);
+        return capacityMapper.daoToResponse(capacity);
+    }
+
+    public Set<CapacityResponse> getAll() {
+        return capacityMapper.daoListToResponseSet(capacityRepository.findAll());
     }
 
     public void delete(Integer id) {
@@ -63,4 +68,6 @@ public class CapacityService {
         if (Objects.isNull(request.maxLevel()) || request.maxLevel() < 0 || request.maxLevel() > 10)
             throw new BadRequestException("MaxLevel not valid!");
     }
+
+
 }

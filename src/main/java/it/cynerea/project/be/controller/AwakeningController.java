@@ -1,15 +1,14 @@
 package it.cynerea.project.be.controller;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
-import it.cynerea.project.be.model.dto.request.AttributeRequest;
 import it.cynerea.project.be.model.dto.request.AwakeningRequest;
-import it.cynerea.project.be.model.dto.response.AttributeResponse;
 import it.cynerea.project.be.model.dto.response.AwakeningResponse;
-import it.cynerea.project.be.service.AttributeService;
 import it.cynerea.project.be.service.AwakeningService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Set;
 
 @RestController
 @RequestMapping("/awakening")
@@ -33,6 +32,12 @@ public class AwakeningController {
     @GetMapping(value = "/getById/{id}")
     public ResponseEntity<AwakeningResponse> getById(@PathVariable Integer id) {
         AwakeningResponse response = awakeningServiceService.getById(id);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping(value = "/getAll")
+    public ResponseEntity<Set<AwakeningResponse>> getAll() {
+        Set<AwakeningResponse> response = awakeningServiceService.getAll();
         return ResponseEntity.ok(response);
     }
 

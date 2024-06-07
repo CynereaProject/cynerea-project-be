@@ -6,8 +6,13 @@ import it.cynerea.project.be.model.dto.response.CapacityResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
+import java.util.List;
+import java.util.Set;
+
 @Mapper(componentModel = "spring")
 public interface CapacityMapper {
+
+    @Mapping(target = "id", ignore = true)
     @Mapping(target = "name", source = "name")
     @Mapping(target = "description", source = "description")
     @Mapping(target = "maxLevel", source = "maxLevel")
@@ -17,5 +22,7 @@ public interface CapacityMapper {
     @Mapping(target = "name", source = "name")
     @Mapping(target = "description", source = "description")
     @Mapping(target = "maxLevel", source = "maxLevel")
-    CapacityResponse dtoToResponse(Capacity capacity);
+    CapacityResponse daoToResponse(Capacity capacity);
+
+    Set<CapacityResponse> daoListToResponseSet(List<Capacity> all);
 }

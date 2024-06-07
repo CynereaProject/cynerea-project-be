@@ -1,7 +1,7 @@
 package it.cynerea.project.be.service;
 
-import it.cynerea.project.be.error.NotFoundException;
 import it.cynerea.project.be.error.BadRequestException;
+import it.cynerea.project.be.error.NotFoundException;
 import it.cynerea.project.be.mapper.AttributeMapper;
 import it.cynerea.project.be.model.dao.Attribute;
 import it.cynerea.project.be.model.dto.request.AttributeRequest;
@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class AttributeService {
@@ -40,6 +41,10 @@ public class AttributeService {
         return attributeMapper.daoToResponse(attribute);
     }
 
+    public Set<AttributeResponse> getAll() {
+        return  attributeMapper.daoListToResponseSet(attributeRepository.findAll());
+    }
+
     public void delete(Integer id) {
         attributeRepository.deleteById(id);
     }
@@ -60,4 +65,6 @@ public class AttributeService {
         if(Objects.isNull(request.description()))
             throw new BadRequestException("Description is null!");
     }
+
+
 }
