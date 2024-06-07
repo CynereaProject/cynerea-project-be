@@ -23,16 +23,8 @@ public interface AwakeningMapper {
     @Mapping(target = "name", source = "name")
     @Mapping(target = "description", source = "description")
     @Mapping(target = "img", source = "img")
-    //@Mapping(source = "skills", target = "skills", qualifiedByName = "skills")
     @Mapping(target = "skills", ignore = true)
     AwakeningResponse daoToResponse(Awakening awakening);
 
     Set<AwakeningResponse> daoListToResponseSet(List<Awakening> awakeningList);
-
-    /*@Named("skills")
-    default Set<AwakeningSkillDto> skillsDaoToSkillDto(Set<AwakeningSkill> skills){
-        return skills.stream().map(awakeningSkill -> {
-            return new AwakeningSkillDto(awakeningSkill.getId().getSkill().getId(), awakeningSkill.getRequiredGrade());
-        }).collect(Collectors.toSet());
-    }*/
 }
