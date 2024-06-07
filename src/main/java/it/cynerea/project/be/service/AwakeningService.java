@@ -66,8 +66,6 @@ public class AwakeningService {
             throw new BadRequestException("Name is null!");
         if(Objects.isNull(request.description()))
             throw new BadRequestException("Description is null!");
-        if(Objects.isNull(request.img()))
-            throw new BadRequestException("Img is null!");
     }
 
 }

@@ -24,7 +24,7 @@ public interface ChapterMapper {
     @Mapping(target = "title", source = "title")
     @Mapping(target = "description", source = "description")
     @Mapping(target = "paragraphs", ignore = true)
-    ChapterResponse daoToResponse(Chapter byId);
+    ChapterResponse daoToResponse(Chapter chapter);
 
     Set<ChapterResponse> daoListToResponseSet(List<Chapter> chapterList);
 }
