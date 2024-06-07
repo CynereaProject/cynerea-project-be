@@ -1,19 +1,17 @@
 package it.cynerea.project.be.service;
 
 import it.cynerea.project.be.error.NotFoundException;
+import it.cynerea.project.be.error.BadRequestException;
 import it.cynerea.project.be.mapper.AwakeningMapper;
 import it.cynerea.project.be.model.dao.Awakening;
-import it.cynerea.project.be.model.dao.id.AwakeningSkillId;
-import it.cynerea.project.be.model.dao.relation.AwakeningSkill;
 import it.cynerea.project.be.model.dto.request.AwakeningRequest;
 import it.cynerea.project.be.model.dto.response.AwakeningResponse;
 import it.cynerea.project.be.repo.AwakeningRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
 import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @Service
 public class AwakeningService {
@@ -25,11 +23,13 @@ public class AwakeningService {
     private AwakeningMapper awakeningMapper;
 
     public void create(AwakeningRequest request) {
+        validateRequest(request);
         Awakening newAwakening = awakeningMapper.requestToDao(request);
         awakeningRepository.save(newAwakening);
     }
 
     public void update(Integer id, AwakeningRequest request) {
+        validateRequest(request);
         Awakening awakening = findById(id);
         awakening.setName(request.name());
         awakening.setDescription(request.description());
@@ -51,7 +51,18 @@ public class AwakeningService {
         if(optionalAwakening.isPresent())
             return optionalAwakening.get();
         else
-            throw new NotFoundException();
+            throw new NotFoundException("Risveglio non trovato!");
+    }
+
+    private void validateRequest(AwakeningRequest request){
+        if(Objects.isNull(request))
+            throw new BadRequestException("Request is null!");
+        if(Objects.isNull(request.name()))
+            throw new BadRequestException("Name is null!");
+        if(Objects.isNull(request.description()))
+            throw new BadRequestException("Description is null!");
+        if(Objects.isNull(request.img()))
+            throw new BadRequestException("Img is null!");
     }
 
 }
