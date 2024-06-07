@@ -27,7 +27,7 @@ public class IpAddress {
     @ManyToMany
     @JoinTable(name = "ip_character",
             joinColumns = @JoinColumn(name = "ipAddress"),
-            inverseJoinColumns = @JoinColumn(name = "character"))
+            inverseJoinColumns = @JoinColumn(name = "character_id"))
     private Set<Character> characterList = new LinkedHashSet<>();
 
 }

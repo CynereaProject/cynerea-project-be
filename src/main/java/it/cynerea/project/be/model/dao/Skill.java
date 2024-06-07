@@ -27,6 +27,7 @@ public class Skill {
 
     @Lob
     @Column(name = "description", nullable = false)
+    @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
     private String description;
 
     @Column(name = "mana_cost")
@@ -40,6 +41,7 @@ public class Skill {
 
     @Lob
     @Column(name = "effect", nullable = false)
+    @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
     private String effect;
 
     @Column(name = "img", nullable = false)

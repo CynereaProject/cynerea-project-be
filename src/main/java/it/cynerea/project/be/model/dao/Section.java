@@ -23,6 +23,7 @@ public class Section {
 
     @Lob
     @Column(name = "text", nullable = false)
+    @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
     private String text;
 
     @ManyToOne(optional = false)

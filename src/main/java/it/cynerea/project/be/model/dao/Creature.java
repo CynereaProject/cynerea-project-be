@@ -38,6 +38,7 @@ public class Creature {
 
     @Lob
     @Column(name = "description", nullable = false)
+    @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
     private String description;
 
     @Enumerated(EnumType.STRING)
@@ -47,6 +48,7 @@ public class Creature {
 
     @Lob
     @Column(name = "techniques", nullable = false)
+    @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
     private String techniques;
 
     @OneToMany(mappedBy = "id.creature", orphanRemoval = true)

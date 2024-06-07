@@ -26,6 +26,7 @@ public class Chat {
 
     @Lob
     @Column(name = "description", nullable = false)
+    @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
     private String description;
 
     @Column(name = "img", nullable = false)
@@ -46,6 +47,7 @@ public class Chat {
 
     @Lob
     @Column(name = "master_notes", nullable = false)
+    @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
     private String masterNotes;
 
     @OneToMany(mappedBy = "chat", orphanRemoval = true)

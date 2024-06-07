@@ -19,7 +19,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@Table(name = "character")
+@Table(name = "`character`")
 public class Character {
 
     @Id
@@ -119,14 +119,17 @@ public class Character {
 
     @Lob
     @Column(name = "description")
+    @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
     private String description;
 
     @Lob
     @Column(name = "master_notes")
+    @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
     private String masterNotes;
 
     @Lob
     @Column(name = "guide_notes")
+    @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
     private String guideNotes;
 
     @Temporal(TemporalType.DATE)

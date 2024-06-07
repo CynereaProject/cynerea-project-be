@@ -25,6 +25,7 @@ public class Talent {
 
     @Lob
     @Column(name = "description", nullable = false)
+    @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
     private String description;
 
     @Column(name = "img", nullable = false)
@@ -33,10 +34,12 @@ public class Talent {
 
     @Lob
     @Column(name = "effect", nullable = false)
+    @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
     private String effect;
 
     @Lob
     @Column(name = "requirements")
+    @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
     private String requirements;
 
 

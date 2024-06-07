@@ -38,6 +38,7 @@ public class Missive {
 
     @Lob
     @Column(name = "text", nullable = false)
+    @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
     private String text;
 
     @OneToOne(orphanRemoval = true)

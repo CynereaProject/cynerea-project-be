@@ -1,6 +1,7 @@
 package it.cynerea.project.be.model.dao;
 
 import it.cynerea.project.be.model.dao.id.RaceSkillId;
+import it.cynerea.project.be.model.dao.relation.RaceSkill;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,6 +30,7 @@ public class Race {
 
     @Lob
     @Column(name = "description", nullable = false)
+    @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
     private String description;
 
     @Column(name = "img")
@@ -36,8 +38,8 @@ public class Race {
     private URL img;
 
 
-    @OneToMany(mappedBy = "race", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "id.race", cascade = CascadeType.ALL, orphanRemoval = true)
     @ToString.Exclude
-    private Set<RaceSkillId> raceSkills = new LinkedHashSet<>();
+    private Set<RaceSkill> raceSkills = new LinkedHashSet<>();
 
 }

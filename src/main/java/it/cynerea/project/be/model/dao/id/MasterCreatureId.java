@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.Hibernate;
 import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.proxy.HibernateProxy;
 import org.hibernate.type.SqlTypes;
 
 import java.io.Serializable;
@@ -29,18 +30,20 @@ public class MasterCreatureId implements Serializable {
     private String customName;
 
     @Override
-    public boolean equals(Object o) {
+    public final boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        MasterCreatureId entity = (MasterCreatureId) o;
-        return Objects.equals(this.customName, entity.customName) &&
-                Objects.equals(this.creature, entity.creature) &&
-                Objects.equals(this.master, entity.master);
+        if (o == null) return false;
+        Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
+        Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
+        if (thisEffectiveClass != oEffectiveClass) return false;
+        MasterCreatureId that = (MasterCreatureId) o;
+        return getMaster() != null && Objects.equals(getMaster(), that.getMaster())
+                && getCreature() != null && Objects.equals(getCreature(), that.getCreature())
+                && getCustomName() != null && Objects.equals(getCustomName(), that.getCustomName());
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(customName, creature, master);
+    public final int hashCode() {
+        return Objects.hash(master, creature, customName);
     }
-
 }

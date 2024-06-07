@@ -13,7 +13,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@Table(name = "group")
+@Table(name = "`group`")
 public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -27,6 +27,7 @@ public class Group {
 
     @Lob
     @Column(name = "statute", nullable = false)
+    @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
     private String statute;
 
     @Column(name = "img", nullable = false)

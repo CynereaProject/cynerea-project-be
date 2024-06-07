@@ -27,6 +27,7 @@ public class Paragraph {
 
     @Lob
     @Column(name = "description", nullable = false)
+    @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
     private String description;
 
     @ManyToOne(optional = false)

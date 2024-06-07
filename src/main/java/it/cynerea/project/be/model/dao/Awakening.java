@@ -28,6 +28,7 @@ public class Awakening {
 
     @Lob
     @Column(name = "description", nullable = false)
+    @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
     private String description;
 
     @Column(name = "img", nullable = false)

@@ -29,6 +29,7 @@ public class Item {
 
     @Lob
     @Column(name = "description", nullable = false)
+    @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
     private String description;
 
     @Column(name = "img", nullable = false)
@@ -42,6 +43,7 @@ public class Item {
 
     @Lob
     @Column(name = "effect")
+    @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
     private String effect;
 
     @Enumerated(EnumType.STRING)

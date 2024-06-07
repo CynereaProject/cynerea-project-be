@@ -23,6 +23,7 @@ public class Capacity {
 
     @Lob
     @Column(name = "description", nullable = false)
+    @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
     private String description;
 
     @Column(name = "max_level", nullable = false)

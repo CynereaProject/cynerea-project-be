@@ -36,6 +36,7 @@ public class CharacterItem {
 
     @Lob
     @Column(name = "custom_description")
+    @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
     private String customDescription;
 
     @Column(name = "custom_img")
@@ -44,6 +45,7 @@ public class CharacterItem {
 
     @Lob
     @Column(name = "master_notes")
+    @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
     private String masterNotes;
 
     @Column(name = "amount")

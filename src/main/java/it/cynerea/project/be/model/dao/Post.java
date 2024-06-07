@@ -46,6 +46,7 @@ public class Post {
 
     @Lob
     @Column(name = "text", nullable = false)
+    @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
     private String text;
 
     @ManyToMany
