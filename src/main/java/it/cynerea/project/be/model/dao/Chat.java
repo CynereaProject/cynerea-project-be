@@ -44,6 +44,10 @@ public class Chat {
     @JdbcTypeCode(SqlTypes.TINYINT)
     private Integer groupInfluence3;
 
+    @Lob
+    @Column(name = "master_notes", nullable = false)
+    private String masterNotes;
+
     @OneToMany(mappedBy = "chat", orphanRemoval = true)
     private Set<Character> characters = new LinkedHashSet<>();
 
