@@ -35,7 +35,7 @@ public class Race {
 
     @Column(name = "img")
     @JdbcTypeCode(SqlTypes.VARCHAR)
-    private URL img;
+    private String img;
 
 
     @OneToMany(mappedBy = "id.race", cascade = CascadeType.ALL, orphanRemoval = true)

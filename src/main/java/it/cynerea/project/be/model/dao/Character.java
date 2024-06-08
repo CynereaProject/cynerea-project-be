@@ -115,7 +115,7 @@ public class Character {
     /*NOTE*/
     @Column(name = "avatar")
     @JdbcTypeCode(SqlTypes.VARCHAR)
-    private URL avatar;
+    private String avatar;
 
     @Lob
     @Column(name = "description")

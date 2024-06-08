@@ -33,7 +33,7 @@ public class Awakening {
 
     @Column(name = "img", nullable = false)
     @JdbcTypeCode(SqlTypes.VARCHAR)
-    private URL img;
+    private String img;
 
     @OneToMany(mappedBy = "id.awakening", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<AwakeningSkill> skills = new LinkedHashSet<>();

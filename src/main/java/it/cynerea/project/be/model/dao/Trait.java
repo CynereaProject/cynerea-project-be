@@ -30,7 +30,7 @@ public class Trait {
 
     @Column(name = "img", nullable = false)
     @JdbcTypeCode(SqlTypes.VARCHAR)
-    private URL img;
+    private String img;
 
     @Lob
     @Column(name = "effect", nullable = false)

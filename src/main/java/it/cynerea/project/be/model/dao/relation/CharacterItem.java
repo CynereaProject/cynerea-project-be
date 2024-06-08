@@ -41,7 +41,7 @@ public class CharacterItem {
 
     @Column(name = "custom_img")
     @JdbcTypeCode(SqlTypes.VARCHAR)
-    private URL customImg;
+    private String customImg;
 
     @Lob
     @Column(name = "master_notes")

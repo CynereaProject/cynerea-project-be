@@ -7,12 +7,17 @@ import it.cynerea.project.be.model.dao.Awakening;
 import it.cynerea.project.be.model.dto.request.AwakeningRequest;
 import it.cynerea.project.be.model.dto.response.AwakeningResponse;
 import it.cynerea.project.be.repo.AwakeningRepository;
+import it.cynerea.project.be.validation.DtoValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
+
+import static it.cynerea.project.be.costant.ImageUrlDefault.AWAKENING_URL;
 
 @Service
 public class AwakeningService {
@@ -23,18 +28,26 @@ public class AwakeningService {
     @Autowired
     private AwakeningMapper awakeningMapper;
 
+    @Autowired
+    private DtoValidator validator;
+
     public void create(AwakeningRequest request) {
-        validateRequest(request);
-        Awakening newAwakening = awakeningMapper.requestToDao(request);
-        awakeningRepository.save(newAwakening);
+        validator.validate(request);
+        Awakening awakening = awakeningMapper.requestToDao(request);
+        if(Objects.isNull(awakening.getImg()))
+            awakening.setImg(AWAKENING_URL);
+        awakeningRepository.save(awakening);
     }
 
     public void update(Integer id, AwakeningRequest request) {
-        validateRequest(request);
+        validator.validate(request);
         Awakening awakening = findById(id);
         awakening.setName(request.name());
         awakening.setDescription(request.description());
-        awakening.setImg(request.img());
+        if(Objects.nonNull(request.img()))
+            awakening.setImg(request.img());
+        else
+            awakening.setImg(AWAKENING_URL);
         awakeningRepository.save(awakening);
     }
 

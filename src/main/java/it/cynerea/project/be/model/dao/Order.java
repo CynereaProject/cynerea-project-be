@@ -32,7 +32,7 @@ public class Order {
 
     @Column(name = "img", nullable = false)
     @JdbcTypeCode(SqlTypes.VARCHAR)
-    private URL img;
+    private String img;
 
     @ManyToMany
     @JoinTable(name = "order_skill",

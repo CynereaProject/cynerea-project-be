@@ -7,6 +7,7 @@ import it.cynerea.project.be.model.dao.Capacity;
 import it.cynerea.project.be.model.dto.request.CapacityRequest;
 import it.cynerea.project.be.model.dto.response.CapacityResponse;
 import it.cynerea.project.be.repo.CapacityRepository;
+import it.cynerea.project.be.validation.DtoValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,14 +23,17 @@ public class CapacityService {
     @Autowired
     private CapacityMapper capacityMapper;
 
+    @Autowired
+    private DtoValidator validator;
+
     public void create(CapacityRequest request) {
-        validateRequest(request);
+        validator.validate(request);
         Capacity capacity = capacityMapper.requestToDao(request);
         capacityRepository.save(capacity);
     }
 
     public void update(Integer id, CapacityRequest request) {
-        validateRequest(request);
+        validator.validate(request);
         Capacity capacity = findById(id);
         capacity.setName(request.name());
         capacity.setDescription(request.description());
@@ -56,17 +60,6 @@ public class CapacityService {
             return optionalCapacity.get();
         else
             throw new NotFoundException("Capacità non trovata!");
-    }
-
-    private void validateRequest(CapacityRequest request){
-        if(Objects.isNull(request))
-            throw new BadRequestException("Request is null!");
-        if(Objects.isNull(request.name()))
-            throw new BadRequestException("Name is null!");
-        if(Objects.isNull(request.description()))
-            throw new BadRequestException("Description is null!");
-        if (Objects.isNull(request.maxLevel()) || request.maxLevel() < 0 || request.maxLevel() > 10)
-            throw new BadRequestException("MaxLevel not valid!");
     }
 
 

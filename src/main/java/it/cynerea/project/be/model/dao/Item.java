@@ -34,7 +34,7 @@ public class Item {
 
     @Column(name = "img", nullable = false)
     @JdbcTypeCode(SqlTypes.VARCHAR)
-    private URL img;
+    private String img;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "typology", nullable = false)

@@ -2,8 +2,10 @@ package it.cynerea.project.be.model.dto.request;
 
 
 
-import java.net.URL;
+import jakarta.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.URL;
+
 import java.util.Set;
 
-public record AwakeningRequest(String name, String description, URL img) {
+public record AwakeningRequest(@NotNull String name, @NotNull String description, @URL String img) {
 }

@@ -10,6 +10,7 @@ import it.cynerea.project.be.model.dto.request.ChapterRequest;
 import it.cynerea.project.be.model.dto.response.ChapterResponse;
 import it.cynerea.project.be.repo.CapacityRepository;
 import it.cynerea.project.be.repo.ChapterRepository;
+import it.cynerea.project.be.validation.DtoValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,14 +27,17 @@ public class ChapterService {
     @Autowired
     private ChapterMapper chapterMapper;
 
+    @Autowired
+    private DtoValidator validator;
+
     public void create(ChapterRequest request) {
-        validateRequest(request);
+        validator.validate(request);
         Chapter chapter = chapterMapper.requestToDao(request);
         chapterRepository.save(chapter);
     }
 
     public void update(Integer id, ChapterRequest request) {
-        validateRequest(request);
+        validator.validate(request);
         Chapter chapter = findById(id);
         chapter.setTitle(request.title());
         chapter.setDescription(request.description());
@@ -58,14 +62,5 @@ public class ChapterService {
             return optionalChapter.get();
         else
             throw new NotFoundException("Capitolo non trovato!");
-    }
-
-    private void validateRequest(ChapterRequest request){
-        if(Objects.isNull(request))
-            throw new BadRequestException("Request is null!");
-        if(Objects.isNull(request.title()))
-            throw new BadRequestException("Title is null!");
-        if(Objects.isNull(request.description()))
-            throw new BadRequestException("Description is null!");
     }
 }

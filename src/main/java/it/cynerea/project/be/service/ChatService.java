@@ -7,6 +7,7 @@ import it.cynerea.project.be.model.dao.Chat;
 import it.cynerea.project.be.model.dto.request.ChatRequest;
 import it.cynerea.project.be.model.dto.response.ChatResponse;
 import it.cynerea.project.be.repo.ChatRepository;
+import it.cynerea.project.be.validation.DtoValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,14 +23,17 @@ public class ChatService {
     @Autowired
     private ChatMapper chatMapper;
 
+    @Autowired
+    private DtoValidator validator;
+
     public void create(ChatRequest request) {
-        validateRequest(request);
+        validator.validate(request);
         Chat chat = chatMapper.requestToDao(request);
         chatRepository.save(chat);
     }
 
     public void update(Integer id, ChatRequest request) {
-        validateRequest(request);
+        validator.validate(request);
         Chat chat = findById(id);
         chat.setName(request.name());
         chat.setDescription(request.description());
@@ -59,20 +63,5 @@ public class ChatService {
             return optionalChat.get();
         else
             throw new NotFoundException("Chat non trovata!");
-    }
-
-    private void validateRequest(ChatRequest request){
-        if(Objects.isNull(request))
-            throw new BadRequestException("Request is null!");
-        if(Objects.isNull(request.name()))
-            throw new BadRequestException("Name is null!");
-        if(Objects.isNull(request.description()))
-            throw new BadRequestException("Description is null!");
-        if (Objects.isNull(request.groupInfluence1()) || request.groupInfluence1() < -10 || request.groupInfluence1() > 10)
-            throw new BadRequestException("GroupInfluence1 not valid!");
-        if (Objects.isNull(request.groupInfluence2()) || request.groupInfluence2() < -10 || request.groupInfluence2() > 10)
-            throw new BadRequestException("GroupInfluence2 not valid!");
-        if (Objects.isNull(request.groupInfluence3()) || request.groupInfluence3() < -10 || request.groupInfluence3() > 10)
-            throw new BadRequestException("GroupInfluence3 not valid!");
     }
 }

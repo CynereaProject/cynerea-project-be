@@ -31,7 +31,7 @@ public class Chat {
 
     @Column(name = "img", nullable = false)
     @JdbcTypeCode(SqlTypes.VARCHAR)
-    private URL img;
+    private String img;
 
     @Column(name = "group_influence_1", nullable = false)
     @JdbcTypeCode(SqlTypes.TINYINT)

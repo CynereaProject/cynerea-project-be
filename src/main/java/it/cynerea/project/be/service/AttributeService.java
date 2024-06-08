@@ -7,6 +7,8 @@ import it.cynerea.project.be.model.dao.Attribute;
 import it.cynerea.project.be.model.dto.request.AttributeRequest;
 import it.cynerea.project.be.model.dto.response.AttributeResponse;
 import it.cynerea.project.be.repo.AttributeRepository;
+import it.cynerea.project.be.validation.DtoValidator;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,14 +24,17 @@ public class AttributeService {
     @Autowired
     private AttributeMapper attributeMapper;
 
+    @Autowired
+    private DtoValidator validator;
+
     public void create(AttributeRequest request) {
-        validateRequest(request);
+        validator.validate(request);
         Attribute attribute = attributeMapper.requestToDao(request);
         attributeRepository.save(attribute);
     }
 
     public void update(Integer id, AttributeRequest request) {
-        validateRequest(request);
+        validator.validate(request);
         Attribute attribute = findById(id);
         attribute.setName(request.name());
         attribute.setDescription(request.description());
@@ -55,15 +60,6 @@ public class AttributeService {
             return optionalAttribute.get();
         else
             throw new NotFoundException("Attributo non trovato!");
-    }
-
-    private void validateRequest(AttributeRequest request){
-        if(Objects.isNull(request))
-            throw new BadRequestException("Request is null!");
-        if(Objects.isNull(request.name()))
-            throw new BadRequestException("Name is null!");
-        if(Objects.isNull(request.description()))
-            throw new BadRequestException("Description is null!");
     }
 
 

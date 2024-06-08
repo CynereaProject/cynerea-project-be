@@ -45,7 +45,7 @@ public class Skill {
     private String effect;
 
     @Column(name = "img", nullable = false)
-    private URL img;
+    private String img;
 
     @Column(name = "max_level")
     @JdbcTypeCode(SqlTypes.TINYINT)

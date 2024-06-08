@@ -32,7 +32,7 @@ public class Group {
 
     @Column(name = "img", nullable = false)
     @JdbcTypeCode(SqlTypes.VARCHAR)
-    private URL img;
+    private String img;
 
     @Column(name = "cash")
     @JdbcTypeCode(SqlTypes.BIGINT)

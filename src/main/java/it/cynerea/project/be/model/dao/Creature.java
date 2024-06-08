@@ -34,7 +34,7 @@ public class Creature {
 
     @Column(name = "img", nullable = false)
     @JdbcTypeCode(SqlTypes.VARCHAR)
-    private URL img;
+    private String img;
 
     @Lob
     @Column(name = "description", nullable = false)

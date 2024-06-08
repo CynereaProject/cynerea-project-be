@@ -1,4 +1,6 @@
 package it.cynerea.project.be.model.dto.request;
 
-public record ChapterRequest(String title, String description) {
+import jakarta.validation.constraints.NotNull;
+
+public record ChapterRequest(@NotNull String title, @NotNull String description) {
 }

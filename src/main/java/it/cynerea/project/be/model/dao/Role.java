@@ -31,7 +31,7 @@ public class Role {
 
     @Column(name = "img", nullable = false)
     @JdbcTypeCode(SqlTypes.VARCHAR)
-    private URL img;
+    private String img;
 
     @Column(name = "is_manager", nullable = false)
     @JdbcTypeCode(SqlTypes.BIT)
