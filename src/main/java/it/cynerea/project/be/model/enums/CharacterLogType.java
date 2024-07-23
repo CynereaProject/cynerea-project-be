@@ -1,7 +1,7 @@
 package it.cynerea.project.be.model.enums;
 
 public enum CharacterLogType {
-    Esperiza,
+    Esperienza,
     Vita,
     Mana,
     Monete,

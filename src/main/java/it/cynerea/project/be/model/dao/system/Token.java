@@ -10,7 +10,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
-@Table(name = "token")
+@Table(name = "sys_token")
 public class Token {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
