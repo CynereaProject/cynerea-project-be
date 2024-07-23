@@ -13,7 +13,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@Table(name = "ch_channel")
+@Table(name = "chn_channel")
 public class Channel {
     @Id
     @Column(name = "name", nullable = false)

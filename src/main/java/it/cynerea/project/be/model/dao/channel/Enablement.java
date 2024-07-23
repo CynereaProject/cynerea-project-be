@@ -13,7 +13,7 @@ import java.util.Objects;
 @Getter
 @Setter
 @Entity
-@Table(name = "ch_enablement")
+@Table(name = "chn_enablement")
 public class Enablement {
     @EmbeddedId
     private EnablementId id;
