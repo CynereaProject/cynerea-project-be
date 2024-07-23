@@ -24,6 +24,9 @@ public class Member {
     @Column(name = "img", nullable = false)
     private String img;
 
+    @Column(name = "is_boss", nullable = false)
+    private Boolean isBoss = false;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

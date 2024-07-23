@@ -1,5 +1,6 @@
 package it.cynerea.project.be.model.dao.character;
 
+import it.cynerea.project.be.model.dao.awakening.Awakening;
 import it.cynerea.project.be.model.dao.embedded.Blessing;
 import it.cynerea.project.be.model.dao.embedded.Equipment;
 import it.cynerea.project.be.model.dao.embedded.Resistances;
@@ -106,7 +107,6 @@ public class Character {
     })
     private Stats currentStats;
 
-
     @Embedded
     private Resistances resistances;
 
@@ -135,6 +135,10 @@ public class Character {
 
     @OneToMany(mappedBy = "id.character", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Member> memberOf = new LinkedHashSet<>();
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "awakening_id", nullable = false)
+    private Awakening awakening;
 
     @Column(name = "awakening_degree", nullable = false)
     private Integer awakeningDegree;

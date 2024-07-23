@@ -4,6 +4,8 @@ import it.cynerea.project.be.model.dao.player.Player;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.time.Instant;
 import java.util.Objects;
@@ -32,6 +34,11 @@ public class Message {
     @ManyToOne(optional = false)
     @JoinColumn(name = "player_id", nullable = false)
     private Player player;
+
+    @Lob
+    @Column(name = "text", nullable = false)
+    @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
+    private String text;
 
     @Override
     public boolean equals(Object o) {
