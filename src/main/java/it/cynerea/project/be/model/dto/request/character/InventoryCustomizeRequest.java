@@ -1,6 +1,7 @@
 package it.cynerea.project.be.model.dto.request.character;
 
 public record InventoryCustomizeRequest(
-    String customName,
-    String customDescription
-){}
+        String customName,
+        String customDescription
+) {
+}

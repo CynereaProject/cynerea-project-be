@@ -6,11 +6,12 @@ import it.cynerea.project.be.model.enums.Gender;
 import java.util.UUID;
 
 public record CharacterRequest(
-    String name,
-    String surname,
-    Gender gender,
-    String avatar,
-    Equipment equipment,
-    UUID playerId,
-    Long raceId
-){}
+        String name,
+        String surname,
+        Gender gender,
+        String avatar,
+        Equipment equipment,
+        UUID playerId,
+        Long raceId
+) {
+}
