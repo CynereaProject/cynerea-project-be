@@ -8,6 +8,8 @@ import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 @Embeddable
@@ -18,4 +20,16 @@ public class PlayerIpId {
 
     @Column(name = "ip", nullable = false, length = 39)
     private String ip;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof PlayerIpId that)) return false;
+        return Objects.equals(getPlayer().getId(), that.getPlayer().getId()) && Objects.equals(getIp(), that.getIp());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getPlayer().hashCode(), getIp().hashCode());
+    }
 }

@@ -9,6 +9,8 @@ import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 @Embeddable
@@ -25,4 +27,15 @@ public class CharacterLogId {
     @Column(name = "date", nullable = false)
     private Integer date;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CharacterLogId that)) return false;
+        return Objects.equals(getPlayer().getId(), that.getPlayer().getId()) && Objects.equals(getCharacter().getId(), that.getCharacter().getId()) && Objects.equals(getDate(), that.getDate());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getPlayer().hashCode(), getCharacter().getId(), getDate());
+    }
 }

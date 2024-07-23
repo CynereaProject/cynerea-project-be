@@ -6,6 +6,8 @@ import lombok.Setter;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 @Entity
@@ -22,4 +24,16 @@ public class Trophy {
 
     @Column(name = "img", nullable = false)
     private String img;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Trophy trophy)) return false;
+        return Objects.equals(getName(), trophy.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getName());
+    }
 }

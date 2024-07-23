@@ -8,6 +8,8 @@ import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 @Embeddable
@@ -19,4 +21,16 @@ public class AwakeningSkillId {
     @ManyToOne(optional = false)
     @JoinColumn(name = "skill_id", nullable = false)
     private Skill skill;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof AwakeningSkillId that)) return false;
+        return Objects.equals(getAwakening().getId(), that.getAwakening().getId()) && Objects.equals(getSkill().getId(), that.getSkill().getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getAwakening().getId(), getSkill().getId());
+    }
 }

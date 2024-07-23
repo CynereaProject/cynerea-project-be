@@ -8,6 +8,8 @@ import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 @Embeddable
@@ -19,4 +21,16 @@ public class CharacterOrderId {
     @ManyToOne(optional = false)
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CharacterOrderId that)) return false;
+        return Objects.equals(getCharacter().getId(), that.getCharacter().getId()) && Objects.equals(getOrder().getId(), that.getOrder().getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getCharacter().getId(), getOrder().getId());
+    }
 }

@@ -18,6 +18,7 @@ import org.hibernate.type.SqlTypes;
 
 import java.time.Instant;
 import java.util.LinkedHashSet;
+import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
@@ -165,4 +166,15 @@ public class Character {
     @JoinColumn(name = "race_id", nullable = false)
     private Race race;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Character character)) return false;
+        return Objects.equals(getId(), character.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
+    }
 }

@@ -8,6 +8,8 @@ import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 @Embeddable
@@ -20,4 +22,15 @@ public class CharacterSkillId {
     @JoinColumn(name = "skill_id", nullable = false)
     private Skill skill;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CharacterSkillId that)) return false;
+        return Objects.equals(getCharacter().getId(), that.getCharacter().getId()) && Objects.equals(getSkill().getId(), that.getSkill().getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getCharacter().getId(), getSkill().getId());
+    }
 }

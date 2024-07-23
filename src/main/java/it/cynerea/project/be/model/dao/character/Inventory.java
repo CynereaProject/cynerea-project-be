@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
+import java.util.Objects;
 import java.util.UUID;
 
 @Getter
@@ -43,4 +44,15 @@ public class Inventory {
     @Column(name = "quantity", nullable = false)
     private Integer quantity;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Inventory inventory)) return false;
+        return Objects.equals(getId(), inventory.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
+    }
 }

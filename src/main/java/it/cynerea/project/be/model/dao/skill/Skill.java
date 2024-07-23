@@ -7,6 +7,8 @@ import lombok.Setter;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 @Entity
@@ -42,4 +44,15 @@ public class Skill {
     @Column(name = "type", nullable = false)
     private SkillType type;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Skill skill)) return false;
+        return Objects.equals(getId(), skill.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
+    }
 }

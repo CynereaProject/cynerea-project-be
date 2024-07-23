@@ -9,6 +9,7 @@ import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
 import java.util.LinkedHashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Getter
@@ -48,4 +49,15 @@ public class Chat {
     @OneToMany(mappedBy = "id.chat", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Influence> influences = new LinkedHashSet<>();
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Chat chat)) return false;
+        return Objects.equals(getId(), chat.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
+    }
 }

@@ -10,6 +10,7 @@ import lombok.Setter;
 
 import java.time.Instant;
 import java.util.LinkedHashSet;
+import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
@@ -54,4 +55,15 @@ public class Quest {
             inverseJoinColumns = @JoinColumn(name = "action_id"))
     private Set<Action> actions = new LinkedHashSet<>();
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Quest quest)) return false;
+        return Objects.equals(getId(), quest.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
+    }
 }
