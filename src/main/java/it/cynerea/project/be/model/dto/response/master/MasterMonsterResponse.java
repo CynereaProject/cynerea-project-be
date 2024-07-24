@@ -6,12 +6,13 @@ import it.cynerea.project.be.model.dto.response.player.PlayerResponse;
 
 import java.util.UUID;
 
-public record MasterMonsterResponse (
-    UUID id,
-    MonsterResponse monster,
-    PlayerResponse master,
-    String customName,
-    StatsResponse currentStats,
-    ResistancesResponse currentResistances,
-    MasterQuestResponse quest
-){}
+public record MasterMonsterResponse(
+        UUID id,
+        MonsterResponse monster,
+        PlayerResponse master,
+        String customName,
+        StatsResponse currentStats,
+        ResistancesResponse currentResistances,
+        MasterQuestResponse quest
+) {
+}

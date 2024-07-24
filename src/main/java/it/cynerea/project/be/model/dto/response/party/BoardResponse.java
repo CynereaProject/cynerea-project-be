@@ -5,10 +5,11 @@ import java.util.Set;
 import java.util.UUID;
 
 public record BoardResponse(
-    UUID id,
-    PartyPlayerResponse player,
-    Instant date,
-    String title,
-    String text,
-    Set<DiscussionResponse> discussion
-){}
+        UUID id,
+        PartyPlayerResponse player,
+        Instant date,
+        String title,
+        String text,
+        Set<DiscussionResponse> discussion
+) {
+}
