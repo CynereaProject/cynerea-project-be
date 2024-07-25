@@ -5,7 +5,7 @@ import it.cynerea.project.be.model.enums.CharacterLogType;
 import java.util.UUID;
 
 public record CharacterLogRequest(
-        UUID characterId,
+        String characterId,
         String cause,
         CharacterLogType type
 ) {

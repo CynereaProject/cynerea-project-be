@@ -19,7 +19,7 @@ public class MasterMonster {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id", nullable = false)
-    private UUID id;
+    private String id;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "monster_id", nullable = false)

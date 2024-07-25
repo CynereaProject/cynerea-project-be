@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.Instant;
+import java.sql.Date; 
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -22,7 +22,7 @@ public class Quest {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id", nullable = false)
-    private UUID id;
+    private String id;
 
     @Column(name = "name", nullable = false, unique = true)
     private String name;
@@ -35,10 +35,10 @@ public class Quest {
     private Set<MasterMonster> monsters = new LinkedHashSet<>();
 
     @Column(name = "open_date", nullable = false)
-    private Instant openDate;
+    private Date openDate;
 
     @Column(name = "close_date")
-    private Instant closeDate;
+    private Date closeDate;
 
     @Column(name = "is_lock", nullable = false)
     private Boolean isLock = false;

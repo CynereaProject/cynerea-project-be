@@ -5,7 +5,7 @@ import java.util.UUID;
 
 public record MessageRequest(
         Boolean isPin,
-        UUID playerId,
+        String playerId,
         String text
 ) {
 }

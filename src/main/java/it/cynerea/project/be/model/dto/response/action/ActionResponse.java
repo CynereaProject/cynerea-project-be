@@ -4,14 +4,14 @@ import it.cynerea.project.be.model.dto.response.common.ResistancesResponse;
 import it.cynerea.project.be.model.dto.response.common.StatsResponse;
 import it.cynerea.project.be.model.enums.ActionType;
 
-import java.time.Instant;
+import java.sql.Date; 
 import java.util.Set;
 import java.util.UUID;
 
 public record ActionResponse(
-        UUID id,
+        String id,
         ActionCharacterResponse character,
-        Instant date,
+        Date date,
         ActionType type,
         String text,
         StatsResponse modifierStats,

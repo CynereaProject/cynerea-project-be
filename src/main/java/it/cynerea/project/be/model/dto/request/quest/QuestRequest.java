@@ -5,7 +5,7 @@ import java.util.UUID;
 
 public record QuestRequest(
         String name,
-        UUID masterId,
+        String masterId,
         Boolean isLock,
         Set<UUID> participantsId
 ) {

@@ -6,13 +6,13 @@ import it.cynerea.project.be.model.dto.response.common.ResistancesResponse;
 import it.cynerea.project.be.model.dto.response.common.StatsResponse;
 import it.cynerea.project.be.model.enums.Gender;
 
-import java.time.Instant;
+import java.sql.Date; 
 import java.util.Set;
 import java.util.UUID;
 
 
 public record CharacterResponse(
-        UUID id,
+        String id,
         String name,
         String surname,
         String username,
@@ -27,8 +27,8 @@ public record CharacterResponse(
         String masterNote,
         String guideNote,
         String rumors,
-        Instant creationDate,
-        Instant lastActionDate,
+        Date creationDate,
+        Date lastActionDate,
         Boolean isFrozen,
         StatsResponse stats,
         StatsResponse currentStats,

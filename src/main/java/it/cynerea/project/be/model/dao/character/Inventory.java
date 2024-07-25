@@ -18,7 +18,7 @@ public class Inventory {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id", nullable = false)
-    private UUID id;
+    private String id;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "thing_id", nullable = false)

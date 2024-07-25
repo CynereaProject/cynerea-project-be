@@ -4,6 +4,6 @@ import java.util.UUID;
 
 public record InventoryRequest(
         Long thingId,
-        UUID characterId
+        String characterId
 ) {
 }

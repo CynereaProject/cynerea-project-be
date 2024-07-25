@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public record BoardRequest(
         String partyName,
-        UUID player,
+        String player,
         String title,
         String text
 ) {

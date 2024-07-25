@@ -3,7 +3,7 @@ package it.cynerea.project.be.model.dto.request.party;
 import java.util.UUID;
 
 public record CommunicationRequest(
-        UUID playerId,
+        String playerId,
         Boolean isPin,
         String text
 ) {

@@ -8,7 +8,7 @@ import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.Instant;
+import java.sql.Date; 
 import java.util.Objects;
 
 @Getter
@@ -25,7 +25,7 @@ public class PlayerLogId {
     private Player target;
 
     @Column(name = "date", nullable = false)
-    private Instant date;
+    private Date date;
 
     @Override
     public boolean equals(Object o) {

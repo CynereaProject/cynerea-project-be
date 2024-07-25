@@ -2,21 +2,21 @@ package it.cynerea.project.be.model.dto.response.player;
 
 import it.cynerea.project.be.model.enums.Gender;
 
-import java.time.Instant;
+import java.sql.Date; 
 import java.util.Set;
 import java.util.UUID;
 
 public record PlayerResponse(
-        UUID id,
+        String id,
         String username,
         String name,
         Gender gender,
         String email,
         //String password,
-        Instant registrationDate,
-        Instant lastLoginDate,
+        Date registrationDate,
+        Date lastLoginDate,
         Boolean isBan,
-        Instant banEndDate,
+        Date banEndDate,
         Boolean isTraining,
         Boolean isSilenced,
         Set<RoleResponse> roles,

@@ -15,7 +15,7 @@ public class Token {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "token", nullable = false)
-    private UUID token;
+    private String token;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "player_id", nullable = false)

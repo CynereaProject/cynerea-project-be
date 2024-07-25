@@ -5,7 +5,7 @@ import it.cynerea.project.be.model.enums.PlayerLogType;
 import java.util.UUID;
 
 public record PlayerLogRequest(
-        UUID targetId,
+        String targetId,
         String cause,
         PlayerLogType type
 ) {

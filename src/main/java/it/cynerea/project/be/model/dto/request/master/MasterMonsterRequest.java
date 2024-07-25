@@ -5,6 +5,6 @@ import java.util.UUID;
 public record MasterMonsterRequest(
         Long monsterId,
         String customName,
-        UUID questId
+        String questId
 ) {
 }

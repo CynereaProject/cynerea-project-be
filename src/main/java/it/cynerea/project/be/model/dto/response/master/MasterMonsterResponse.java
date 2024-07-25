@@ -7,7 +7,7 @@ import it.cynerea.project.be.model.dto.response.player.PlayerResponse;
 import java.util.UUID;
 
 public record MasterMonsterResponse(
-        UUID id,
+        String id,
         MonsterResponse monster,
         PlayerResponse master,
         String customName,

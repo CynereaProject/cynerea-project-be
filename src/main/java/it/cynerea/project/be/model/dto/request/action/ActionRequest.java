@@ -8,7 +8,7 @@ import java.util.Set;
 import java.util.UUID;
 
 public record ActionRequest(
-        UUID characterId,
+        String characterId,
         ActionType type,
         String text,
         StatsRequest modifierStats,

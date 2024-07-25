@@ -11,7 +11,7 @@ public record CharacterRequest(
         Gender gender,
         String avatar,
         Equipment equipment,
-        UUID playerId,
+        String playerId,
         Long raceId
 ) {
 }

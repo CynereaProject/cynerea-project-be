@@ -7,7 +7,7 @@ import lombok.Setter;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
-import java.time.Instant;
+import java.sql.Date; 
 import java.util.Objects;
 import java.util.UUID;
 
@@ -19,14 +19,14 @@ public class OffGroupDiscussion {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id", nullable = false)
-    private UUID id;
+    private String id;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "sender_id", nullable = false)
     private Player sender;
 
     @Column(name = "date", nullable = false)
-    private Instant date;
+    private Date date;
 
     @Lob
     @Column(name = "text", nullable = false)

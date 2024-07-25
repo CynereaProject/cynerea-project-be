@@ -1,16 +1,16 @@
 package it.cynerea.project.be.model.dto.response.quest;
 
-import java.time.Instant;
+import java.sql.Date; 
 import java.util.Set;
 import java.util.UUID;
 
 public record QuestResponse(
-        UUID id,
+        String id,
         String name,
         QuestPlayerResponse master,
         //Set<MasterMonsterResponse> monsters
-        Instant openDate,
-        Instant closeDate,
+        Date openDate,
+        Date closeDate,
         Boolean isLock,
         Set<QuestCharacterResponse> participants
         //Set<Action> actions

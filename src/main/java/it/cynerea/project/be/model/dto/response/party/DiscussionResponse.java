@@ -1,12 +1,12 @@
 package it.cynerea.project.be.model.dto.response.party;
 
-import java.time.Instant;
+import java.sql.Date; 
 import java.util.UUID;
 
 public record DiscussionResponse(
-        UUID id,
+        String id,
         PartyPlayerResponse player,
-        Instant date,
+        Date date,
         String text
 ) {
 }

@@ -1,12 +1,12 @@
 package it.cynerea.project.be.model.dto.response.missive;
 
-import java.time.Instant;
+import java.sql.Date; 
 import java.util.UUID;
 
 public record OffGroupDiscussionResponse(
-        UUID id,
+        String id,
         PlayerMissiveResponse sender,
-        Instant date,
+        Date date,
         String text
 ) {
 }

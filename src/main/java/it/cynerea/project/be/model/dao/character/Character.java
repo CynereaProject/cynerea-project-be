@@ -17,7 +17,7 @@ import lombok.Setter;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
-import java.time.Instant;
+import java.sql.Date; 
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -31,7 +31,7 @@ public class Character {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id", nullable = false)
-    private UUID id;
+    private String id;
 
     @Column(name = "name", nullable = false, unique = true)
     private String name;
@@ -85,10 +85,10 @@ public class Character {
     private String rumors;
 
     @Column(name = "creation_date", nullable = false)
-    private Instant creationDate;
+    private Date creationDate;
 
     @Column(name = "last_action_date")
-    private Instant lastActionDate;
+    private Date lastActionDate;
 
     @Column(name = "is_frozen", nullable = false)
     private Boolean isFrozen = false;

@@ -17,6 +17,7 @@ import lombok.Setter;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
+import java.sql.Date;
 import java.time.Instant;
 import java.util.LinkedHashSet;
 import java.util.Objects;
@@ -30,13 +31,13 @@ import java.util.UUID;
 public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "id", nullable = false, length = 36)
-    private UUID id;
+    @Column(name = "id", nullable = false)
+    private String id;
 
     @Column(name = "username", nullable = false, unique = true, length = 30)
     private String username;
 
-    @Column(name = "name", unique = true)
+    @Column(name = "name")
     private String name;
 
     @Enumerated(EnumType.STRING)
@@ -51,17 +52,17 @@ public class Player {
 
     @Column(name = "registration_date", nullable = false)
     @JdbcTypeCode(SqlTypes.DATE)
-    private Instant registrationDate;
+    private Date registrationDate = new Date(Instant.now().toEpochMilli());
 
     @Column(name = "last_login_date")
-    private Instant lastLoginDate;
+    private Date lastLoginDate;
 
     /*LIMIT ACCOUNT*/
     @Column(name = "is_ban", nullable = false)
     private Boolean isBan = false;
 
-    @Column(name = "ban_end_date", nullable = false)
-    private Instant banEndDate;
+    @Column(name = "ban_end_date")
+    private Date banEndDate;
 
     @Column(name = "is_training", nullable = false)
     private Boolean isTraining = false;
