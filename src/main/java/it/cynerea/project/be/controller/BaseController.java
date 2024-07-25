@@ -1,10 +1,9 @@
 package it.cynerea.project.be.controller;
 
+import it.cynerea.project.be.model.dto.request.common.Headers;
+import it.cynerea.project.be.service.system.TokenService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
 
@@ -16,18 +15,18 @@ import java.util.Set;
 public interface BaseController<REQ, RES, I> {
 
     @PostMapping("/create")
-    ResponseEntity<Void> create(REQ request);
+    ResponseEntity<Void> create(@RequestHeader String token, @RequestBody REQ request);
 
-    @GetMapping("/readById")
-    ResponseEntity<RES> readById(I id);
+    @GetMapping("/readById/{id}")
+    ResponseEntity<RES> readById(@RequestHeader String token, @PathVariable I id);
 
     @GetMapping("/readAll")
-    ResponseEntity<Set<RES>> readAll();
+    ResponseEntity<Set<RES>> readAll(@RequestHeader String token);
 
-    @PutMapping("/update")
-    ResponseEntity<Void> update(I id, REQ request);
+    @PutMapping("/update/{id}")
+    ResponseEntity<Void> update(@RequestHeader String token, @PathVariable I id, @RequestBody REQ request);
 
     @DeleteMapping("/delete")
-    ResponseEntity<Void> delete(I id);
+    ResponseEntity<Void> delete(@RequestHeader String token, @PathVariable I id);
 
 }
