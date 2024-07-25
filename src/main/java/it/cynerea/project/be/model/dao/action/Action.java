@@ -4,6 +4,7 @@ import it.cynerea.project.be.model.dao.character.Character;
 import it.cynerea.project.be.model.dao.embedded.Resistances;
 import it.cynerea.project.be.model.dao.embedded.Stats;
 import it.cynerea.project.be.model.dao.skill.Skill;
+import it.cynerea.project.be.model.enums.ActionType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -33,8 +34,9 @@ public class Action {
     @Column(name = "date", nullable = false)
     private Instant date;
 
-    @Column(name = "is_report", nullable = false)
-    private Boolean isReport = false;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "type", nullable = false)
+    private ActionType type;
 
     @Lob
     @Column(name = "text", nullable = false)

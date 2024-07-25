@@ -46,6 +46,9 @@ public class Player {
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
+    @Column(name = "password", nullable = false)
+    private String password;
+
     @Column(name = "registration_date", nullable = false)
     @JdbcTypeCode(SqlTypes.DATE)
     private Instant registrationDate;

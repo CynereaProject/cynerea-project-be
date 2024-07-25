@@ -12,6 +12,7 @@ public record PlayerResponse(
         String name,
         Gender gender,
         String email,
+        //String password,
         Instant registrationDate,
         Instant lastLoginDate,
         Boolean isBan,

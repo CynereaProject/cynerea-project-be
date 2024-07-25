@@ -6,6 +6,7 @@ public record PlayerRequest(
         String username,
         String name,
         Gender gender,
-        String email
+        String email,
+        String password
 ) {
 }

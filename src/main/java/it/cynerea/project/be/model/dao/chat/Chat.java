@@ -37,6 +37,9 @@ public class Chat {
     @Column(name = "background_img", nullable = false)
     private String backgroundImg;
 
+    @Column(name = "audio")
+    private String audio;
+
     @ManyToMany
     @JoinTable(name = "cht_chat_actions",
             joinColumns = @JoinColumn(name = "chat_id"),

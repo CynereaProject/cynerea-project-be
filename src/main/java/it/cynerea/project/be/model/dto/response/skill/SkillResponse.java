@@ -10,6 +10,7 @@ public record SkillResponse(
         Integer maxLevel,
         Integer manaCost,
         Integer healthCost,
-        SkillType type
+        SkillType type,
+        Integer duration
 ) {
 }

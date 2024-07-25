@@ -79,6 +79,11 @@ public class Character {
     @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
     private String guideNote;
 
+    @Lob
+    @Column(name = "rumors")
+    @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
+    private String rumors;
+
     @Column(name = "creation_date", nullable = false)
     private Instant creationDate;
 

@@ -9,6 +9,7 @@ public record ChatResponse(
         String description,
         String miniImg,
         String backgroundImg,
+        String audio,
         //Set<ActionResponse> actions,
         //Set<PlayerResponse> presence,
         Set<InfluenceResponse> influences

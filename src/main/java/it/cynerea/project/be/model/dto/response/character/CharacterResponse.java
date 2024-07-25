@@ -26,6 +26,7 @@ public record CharacterResponse(
         //String description,
         String masterNote,
         String guideNote,
+        String rumors,
         Instant creationDate,
         Instant lastActionDate,
         Boolean isFrozen,

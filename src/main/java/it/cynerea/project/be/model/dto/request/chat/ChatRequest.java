@@ -4,6 +4,7 @@ public record ChatRequest(
         String name,
         String description,
         String miniImg,
-        String backgroundImg
+        String backgroundImg,
+        String audio
 ) {
 }

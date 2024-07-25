@@ -44,6 +44,9 @@ public class Skill {
     @Column(name = "type", nullable = false)
     private SkillType type;
 
+    @Column(name = "duration")
+    private Integer duration;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
