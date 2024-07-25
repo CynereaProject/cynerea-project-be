@@ -18,6 +18,7 @@ import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.LinkedHashSet;
 import java.util.Objects;
@@ -55,7 +56,7 @@ public class Player {
     private Date registrationDate = new Date(Instant.now().toEpochMilli());
 
     @Column(name = "last_login_date")
-    private Date lastLoginDate;
+    private Timestamp lastLoginDate;
 
     /*LIMIT ACCOUNT*/
     @Column(name = "is_ban", nullable = false)
@@ -116,7 +117,7 @@ public class Player {
     @OneToMany(mappedBy = "recipient", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<OffMissive> missivesReceive = new LinkedHashSet<>();
 
-    @OneToOne(orphanRemoval = true)
+    @OneToOne
     @JoinColumn(name = "character_in_use_id")
     private Character characterInUse;
 
@@ -130,5 +131,9 @@ public class Player {
     @Override
     public int hashCode() {
         return Objects.hashCode(getId());
+    }
+
+    public void updateLastLoginDate() {
+        this.setLastLoginDate(new Timestamp(Instant.now().toEpochMilli()));
     }
 }

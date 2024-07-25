@@ -7,7 +7,9 @@ import lombok.Setter;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
-import java.sql.Date; 
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -32,7 +34,7 @@ public class Board {
     private Player player;
 
     @Column(name = "date", nullable = false)
-    private Date date;
+    private Timestamp date = new Timestamp(Instant.now().toEpochMilli());
 
     @Column(name = "title", nullable = false)
     private String title;

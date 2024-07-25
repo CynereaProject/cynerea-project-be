@@ -5,7 +5,6 @@ import java.util.UUID;
 
 public record OffGroupDiscussionRequest(
         String senderId,
-        Date date,
         String text,
         String offGroupMissiveId
 ) {

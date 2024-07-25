@@ -2,7 +2,8 @@ package it.cynerea.project.be.model.dto.response.player;
 
 import it.cynerea.project.be.model.enums.Gender;
 
-import java.sql.Date; 
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Set;
 import java.util.UUID;
 
@@ -14,7 +15,7 @@ public record PlayerResponse(
         String email,
         //String password,
         Date registrationDate,
-        Date lastLoginDate,
+        Timestamp lastLoginDate,
         Boolean isBan,
         Date banEndDate,
         Boolean isTraining,

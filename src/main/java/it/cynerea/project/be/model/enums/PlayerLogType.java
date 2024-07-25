@@ -3,5 +3,8 @@ package it.cynerea.project.be.model.enums;
 public enum PlayerLogType {
     Ban,
     Training,
-    Silenced
+    Silenced,
+    UnBan,
+    UnTraining,
+    UnSilenced
 }

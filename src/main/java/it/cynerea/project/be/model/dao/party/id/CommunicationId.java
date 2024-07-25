@@ -9,7 +9,9 @@ import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.sql.Date; 
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.Objects;
 
 @Getter
@@ -25,7 +27,7 @@ public class CommunicationId {
     private Player player;
 
     @Column(name = "date", nullable = false)
-    private Date date;
+    private Timestamp date = new Timestamp(Instant.now().toEpochMilli());
 
     @Override
     public boolean equals(Object o) {

@@ -9,6 +9,8 @@ import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.Objects;
 
 @Getter
@@ -25,7 +27,7 @@ public class CharacterLogId {
     private Character character;
 
     @Column(name = "date", nullable = false)
-    private Integer date;
+    private Timestamp date = new Timestamp(Instant.now().toEpochMilli());
 
     @Override
     public boolean equals(Object o) {

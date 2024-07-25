@@ -7,7 +7,9 @@ import lombok.Setter;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
-import java.sql.Date; 
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -22,7 +24,7 @@ public class Message {
     private String id;
 
     @Column(name = "send_date", nullable = false)
-    private Date sendDate;
+    private Timestamp sendDate = new Timestamp(Instant.now().toEpochMilli());
 
     @Column(name = "is_pin", nullable = false)
     private Boolean isPin = false;
