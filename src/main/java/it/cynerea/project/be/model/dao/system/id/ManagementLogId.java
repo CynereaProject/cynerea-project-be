@@ -28,15 +28,12 @@ public class ManagementLogId {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        ManagementLogId entity = (ManagementLogId) o;
-        return Objects.equals(this.date, entity.date) &&
-                Objects.equals(this.resource, entity.resource) &&
-                Objects.equals(this.player, entity.player);
+        if (!(o instanceof ManagementLogId that)) return false;
+        return Objects.equals(getPlayer().getId(), that.getPlayer().getId()) && Objects.equals(getResource(), that.getResource()) && Objects.equals(getDate(), that.getDate());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(date, resource, player);
+        return Objects.hash(getPlayer().getId(), getResource(), getDate());
     }
 }

@@ -38,6 +38,6 @@ public class CharacterLogId {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getPlayer().hashCode(), getCharacter().getId(), getDate());
+        return Objects.hash(getPlayer().getId(), getCharacter().getId(), getDate());
     }
 }

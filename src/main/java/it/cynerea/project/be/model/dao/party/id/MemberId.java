@@ -31,6 +31,6 @@ public class MemberId {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getCharacter().getId(), getParty().hashCode());
+        return Objects.hash(getCharacter().getId(), getParty().getName());
     }
 }

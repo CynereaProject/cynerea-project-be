@@ -38,6 +38,6 @@ public class CommunicationId {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getParty().hashCode(), getPlayer().hashCode(), getDate());
+        return Objects.hash(getParty().getName(), getPlayer().getId(), getDate());
     }
 }

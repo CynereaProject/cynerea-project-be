@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 @Entity
@@ -14,11 +16,19 @@ public class ManagementLog {
     @EmbeddedId
     private ManagementLogId id;
 
-    @Column(name = "cause", nullable = false)
-    private String cause;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "type", nullable = false)
     private ManagementLogType type;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ManagementLog that)) return false;
+        return Objects.equals(getId(), that.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
+    }
 }

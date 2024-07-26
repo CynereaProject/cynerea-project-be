@@ -38,6 +38,6 @@ public class PlayerLogId {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getPlayer().hashCode(), getTarget().hashCode(), getDate());
+        return Objects.hash(getPlayer().getId(), getTarget().getId(), getDate());
     }
 }

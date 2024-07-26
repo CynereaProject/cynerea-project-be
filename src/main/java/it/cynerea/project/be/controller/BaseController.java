@@ -24,7 +24,7 @@ public interface BaseController<REQ, RES, I> {
     @PutMapping("/update/{id}")
     ResponseEntity<Void> update(@RequestHeader String token, @PathVariable I id, @RequestBody REQ request);
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/delete/{id}")
     ResponseEntity<Void> delete(@RequestHeader String token, @PathVariable I id);
 
 }

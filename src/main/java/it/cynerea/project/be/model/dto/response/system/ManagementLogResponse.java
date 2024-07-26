@@ -15,6 +15,5 @@ public record ManagementLogResponse (
         PlayerLogResponse player,
         String resource,
         Timestamp date,
-        String cause,
         ManagementLogType type
 ){}

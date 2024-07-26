@@ -30,6 +30,6 @@ public class PlayerIpId {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getPlayer().hashCode(), getIp().hashCode());
+        return Objects.hash(getPlayer().getId(), getIp());
     }
 }
