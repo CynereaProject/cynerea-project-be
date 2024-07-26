@@ -8,6 +8,7 @@ import it.cynerea.project.be.model.dao.missive.OffGroupMissive;
 import it.cynerea.project.be.model.dao.missive.OffMissive;
 import it.cynerea.project.be.model.dao.quest.Quest;
 import it.cynerea.project.be.model.dao.system.CharacterLog;
+import it.cynerea.project.be.model.dao.system.ManagementLog;
 import it.cynerea.project.be.model.dao.system.PlayerIp;
 import it.cynerea.project.be.model.dao.system.PlayerLog;
 import it.cynerea.project.be.model.enums.Gender;
@@ -23,7 +24,6 @@ import java.time.Instant;
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
-import java.util.UUID;
 
 @Getter
 @Setter
@@ -120,6 +120,9 @@ public class Player {
     @OneToOne
     @JoinColumn(name = "character_in_use_id")
     private Character characterInUse;
+
+    @OneToMany(mappedBy = "id.player", cascade = {CascadeType.ALL}, orphanRemoval = true)
+    private Set<ManagementLog> managementLogs = new LinkedHashSet<>();
 
     @Override
     public boolean equals(Object o) {

@@ -1,7 +1,5 @@
 package it.cynerea.project.be.controller;
 
-import it.cynerea.project.be.model.dto.request.common.Headers;
-import it.cynerea.project.be.service.system.TokenService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
