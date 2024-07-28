@@ -42,6 +42,9 @@ public class OffGroupReply {
     @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
     private String text;
 
+    @Column(name = "isRead", nullable = false)
+    private Boolean isRead;
+
     @OneToOne
     @JoinColumn(name = "thread_id")
     private OffGroupReply thread;
