@@ -1,7 +1,10 @@
 package it.cynerea.project.be.model.dto.request.character;
 
+import it.cynerea.project.be.model.dto.request.character.id.CharacterSkillIdRequest;
+
+
 public record CharacterSkillRequest(
-        Long skillId,
-        Integer level
+        CharacterSkillIdRequest id
+        //Integer level INCREMENT
 ) {
 }

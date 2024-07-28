@@ -1,17 +1,20 @@
 package it.cynerea.project.be.model.dto.response.missive;
 
-import java.sql.Date;
+import it.cynerea.project.be.model.dto.response.player.GroupResponse;
+import it.cynerea.project.be.model.dto.response.player.PlayerResponse;
+
 import java.sql.Timestamp;
 import java.util.Set;
-import java.util.UUID;
+
 
 public record OffGroupMissiveResponse(
         String id,
-        PlayerMissiveResponse sender,
+        PlayerResponse sender,
+        GroupResponse group,
         Timestamp date,
         String title,
         String text,
-        Set<OffGroupDiscussionResponse> discussions,
-        Set<OffGroupReplyResponse> replies
+        Set<OffGroupDiscussionResponse> offGroupDiscussions,
+        Set<OffGroupReplyResponse> offGroupReplies
 ) {
 }

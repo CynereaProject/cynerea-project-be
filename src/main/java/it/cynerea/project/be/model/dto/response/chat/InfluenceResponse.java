@@ -1,8 +1,10 @@
 package it.cynerea.project.be.model.dto.response.chat;
 
+import it.cynerea.project.be.model.dto.response.chat.id.InfluenceIdResponse;
+
 
 public record InfluenceResponse(
-        String groupName,
+        InfluenceIdResponse id,
         Integer worth
 ) {
 }

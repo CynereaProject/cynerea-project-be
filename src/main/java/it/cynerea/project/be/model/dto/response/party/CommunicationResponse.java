@@ -1,12 +1,10 @@
 package it.cynerea.project.be.model.dto.response.party;
 
-import java.sql.Date;
-import java.sql.Timestamp;
+import it.cynerea.project.be.model.dto.response.party.id.CommunicationIdResponse;
 
 
 public record CommunicationResponse(
-        PartyPlayerResponse player,
-        Timestamp date,
+        CommunicationIdResponse id,
         Boolean isPin,
         String text
 ) {

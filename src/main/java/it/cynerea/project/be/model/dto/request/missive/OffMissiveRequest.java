@@ -1,12 +1,13 @@
 package it.cynerea.project.be.model.dto.request.missive;
 
-import java.util.UUID;
-
 public record OffMissiveRequest(
-        String senderId,
-        String recipientId,
+        //String id, GENERATE
+        //PlayerRequest sender, OBTAIN BY TOKEN
+        String recipientId, //CUSTOM MAPPER STRING_TO_PLAYER
+        //Timestamp date, GENERATE
         String title,
         String text,
-        String threadId
+        //Boolean isRead, FALSE
+        String threadId //CUSTOM MAPPER STRING_TO_OFFMISSIVE
 ) {
 }

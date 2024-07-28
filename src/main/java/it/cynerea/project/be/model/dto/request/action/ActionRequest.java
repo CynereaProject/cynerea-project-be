@@ -1,18 +1,19 @@
 package it.cynerea.project.be.model.dto.request.action;
 
-import it.cynerea.project.be.model.dto.request.common.ResistancesRequest;
-import it.cynerea.project.be.model.dto.request.common.StatsRequest;
+import it.cynerea.project.be.model.dto.request.embedded.ResistancesRequest;
+import it.cynerea.project.be.model.dto.request.embedded.StatsRequest;
 import it.cynerea.project.be.model.enums.ActionType;
 
 import java.util.Set;
-import java.util.UUID;
 
 public record ActionRequest(
-        String characterId,
+        //String id, GENERATE
+        //CharacterRequest character, OBTAIN TO TOKEN
+        //Timestamp date, GENERATE
         ActionType type,
         String text,
         StatsRequest modifierStats,
         ResistancesRequest modifierResistances,
-        Set<Long> skillsId
+        Set<Long> skills //CUSTOM MAPPER LONG_TO_SKILL
 ) {
 }

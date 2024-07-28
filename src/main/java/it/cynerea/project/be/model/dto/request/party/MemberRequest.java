@@ -1,9 +1,10 @@
 package it.cynerea.project.be.model.dto.request.party;
 
-import java.util.UUID;
+import it.cynerea.project.be.model.dto.request.party.id.MemberIdRequest;
+
 
 public record MemberRequest(
-        String characterId,
+        MemberIdRequest id,
         String role,
         String img,
         Boolean isBoss

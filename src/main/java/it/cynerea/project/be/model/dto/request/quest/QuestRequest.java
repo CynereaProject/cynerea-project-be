@@ -1,12 +1,17 @@
 package it.cynerea.project.be.model.dto.request.quest;
 
 import java.util.Set;
-import java.util.UUID;
+
 
 public record QuestRequest(
+        //String id, GENERATE
         String name,
-        String masterId,
+        //PlayerRequest master, OBTAIN BY TOKEN
+        Set<String> monsters, //CUSTOM MAPPER STRING_TO_MONSTERMASTER
+        //Date openDate, GENERATE
+        //Date closeDate, NULL
         Boolean isLock,
-        Set<UUID> participantsId
+        Set<String> participants //CUSTOM MAPPER STRING_TO_CHARACTER
+        //Set<ActionRequest> actions NULL
 ) {
 }

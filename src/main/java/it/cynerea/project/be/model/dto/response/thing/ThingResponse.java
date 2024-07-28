@@ -3,7 +3,6 @@ package it.cynerea.project.be.model.dto.response.thing;
 import it.cynerea.project.be.model.enums.Manufacture;
 import it.cynerea.project.be.model.enums.ThingType;
 
-import java.util.Set;
 
 public record ThingResponse(
         Long id,
@@ -16,7 +15,6 @@ public record ThingResponse(
         Integer value,
         Boolean isUnique,
         Boolean isCumulative,
-        ThingSubtypeResponse subtype,
-        Set<AttributeResponse> attributes
+        ThingSubtypeResponse subtype
 ) {
 }

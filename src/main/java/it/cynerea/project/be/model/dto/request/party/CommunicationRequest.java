@@ -1,9 +1,10 @@
 package it.cynerea.project.be.model.dto.request.party;
 
-import java.util.UUID;
+import it.cynerea.project.be.model.dto.request.party.id.CommunicationIdRequest;
+
 
 public record CommunicationRequest(
-        String playerId,
+        CommunicationIdRequest id,
         Boolean isPin,
         String text
 ) {

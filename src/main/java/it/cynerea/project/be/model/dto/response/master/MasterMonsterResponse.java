@@ -1,10 +1,10 @@
 package it.cynerea.project.be.model.dto.response.master;
 
-import it.cynerea.project.be.model.dto.response.common.ResistancesResponse;
-import it.cynerea.project.be.model.dto.response.common.StatsResponse;
+import it.cynerea.project.be.model.dto.response.embedded.ResistancesResponse;
+import it.cynerea.project.be.model.dto.response.embedded.StatsResponse;
 import it.cynerea.project.be.model.dto.response.player.PlayerResponse;
+import it.cynerea.project.be.model.dto.response.quest.QuestResponse;
 
-import java.util.UUID;
 
 public record MasterMonsterResponse(
         String id,
@@ -13,6 +13,6 @@ public record MasterMonsterResponse(
         String customName,
         StatsResponse currentStats,
         ResistancesResponse currentResistances,
-        MasterQuestResponse quest
+        QuestResponse quest
 ) {
 }

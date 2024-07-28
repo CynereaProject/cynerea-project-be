@@ -1,10 +1,10 @@
 package it.cynerea.project.be.model.dto.request.party;
 
-import java.util.UUID;
-
 public record DiscussionRequest(
-        String boardId,
-        String playerId,
+        //String id, GENERATE
+        String boardId,//CUSTOM MAPPER STRING_TO_BOARD
+        //PlayerRequest player, OBTAIN BY TOKEN
+        //Timestamp date, GENERATE
         String text
 ) {
 }

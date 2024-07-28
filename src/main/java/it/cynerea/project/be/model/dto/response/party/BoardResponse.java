@@ -1,13 +1,15 @@
 package it.cynerea.project.be.model.dto.response.party;
 
-import java.sql.Date;
+import it.cynerea.project.be.model.dto.response.player.PlayerResponse;
+
 import java.sql.Timestamp;
 import java.util.Set;
-import java.util.UUID;
+
 
 public record BoardResponse(
         String id,
-        PartyPlayerResponse player,
+        PartyResponse party,
+        PlayerResponse player,
         Timestamp date,
         String title,
         String text,

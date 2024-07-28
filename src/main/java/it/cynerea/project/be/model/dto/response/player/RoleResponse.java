@@ -4,6 +4,7 @@ public record RoleResponse(
         String name,
         String description,
         String img,
-        Boolean isAdmin
+        Boolean isAdmin,
+        GroupResponse group
 ) {
 }

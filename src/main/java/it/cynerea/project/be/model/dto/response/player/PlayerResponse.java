@@ -1,11 +1,22 @@
 package it.cynerea.project.be.model.dto.response.player;
 
+import it.cynerea.project.be.model.dto.response.character.CharacterResponse;
+import it.cynerea.project.be.model.dto.response.chat.ChatResponse;
+import it.cynerea.project.be.model.dto.response.master.DropResponse;
+import it.cynerea.project.be.model.dto.response.master.MasterMonsterResponse;
+import it.cynerea.project.be.model.dto.response.missive.OffGroupMissiveResponse;
+import it.cynerea.project.be.model.dto.response.missive.OffMissiveResponse;
+import it.cynerea.project.be.model.dto.response.quest.QuestResponse;
+import it.cynerea.project.be.model.dto.response.system.CharacterLogResponse;
+import it.cynerea.project.be.model.dto.response.system.ManagementLogResponse;
+import it.cynerea.project.be.model.dto.response.system.PlayerIpResponse;
+import it.cynerea.project.be.model.dto.response.system.PlayerLogResponse;
 import it.cynerea.project.be.model.enums.Gender;
 
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.Set;
-import java.util.UUID;
+
 
 public record PlayerResponse(
         String id,
@@ -13,7 +24,7 @@ public record PlayerResponse(
         String name,
         Gender gender,
         String email,
-        //String password,
+        String password,
         Date registrationDate,
         Timestamp lastLoginDate,
         Boolean isBan,
@@ -22,14 +33,18 @@ public record PlayerResponse(
         Boolean isSilenced,
         Set<RoleResponse> roles,
         Set<TrophyResponse> trophies,
-        //Set<PlayerLog> playerLogs,
-        //Set<CharacterLog> characterLogs,
-        //Set<MasterMonsterResponse> monsters,
-        //Set<Drop> drops,
-        //Set<Quest> quests
-        Set<PlayerCharacterResponse> characters
-        //Set<OffGroupMissiveResponse> groupMissivesSend,
-        //Set<OffMissiveResponse> missivesSend,
-        //Set<OffMissiveResponse> missivesReceive
+        Set<PlayerIpResponse> ips,
+        Set<PlayerLogResponse> playerLogs,
+        Set<CharacterLogResponse> characterLogs,
+        Set<MasterMonsterResponse> monsters,
+        Set<DropResponse> drops,
+        Set<QuestResponse> quests,
+        ChatResponse chat,
+        Set<CharacterResponse> characters,
+        Set<OffGroupMissiveResponse> groupMissivesSend,
+        Set<OffMissiveResponse> missivesSend,
+        Set<OffMissiveResponse> missivesReceive,
+        CharacterResponse characterInUse,
+        Set<ManagementLogResponse> managementLogs
 ) {
 }

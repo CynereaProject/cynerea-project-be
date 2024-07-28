@@ -1,9 +1,10 @@
 package it.cynerea.project.be.model.dto.response.master;
 
-import it.cynerea.project.be.model.dto.response.thing.ThingResponse;
+import it.cynerea.project.be.model.dto.response.master.id.DropIdResponse;
+
 
 public record DropResponse(
-        ThingResponse thing,
+        DropIdResponse id,
         Integer quantity
 ) {
 }

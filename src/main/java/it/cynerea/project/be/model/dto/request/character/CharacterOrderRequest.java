@@ -1,7 +1,10 @@
 package it.cynerea.project.be.model.dto.request.character;
 
+import it.cynerea.project.be.model.dto.request.character.id.CharacterOrderIdRequest;
+
+
 public record CharacterOrderRequest(
-        Long orderId,
+        CharacterOrderIdRequest id,
         Integer level,
         Boolean isExcellence
 ) {

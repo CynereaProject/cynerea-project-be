@@ -1,12 +1,14 @@
 package it.cynerea.project.be.model.dto.response.party;
 
-import java.sql.Date;
+import it.cynerea.project.be.model.dto.response.player.PlayerResponse;
+
 import java.sql.Timestamp;
-import java.util.UUID;
+
 
 public record DiscussionResponse(
         String id,
-        PartyPlayerResponse player,
+        BoardResponse board,
+        PlayerResponse player,
         Timestamp date,
         String text
 ) {

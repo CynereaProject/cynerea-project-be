@@ -1,11 +1,13 @@
 package it.cynerea.project.be.model.dto.request.missive;
 
-import java.util.UUID;
-
 public record OffGroupMissiveRequest(
-        String senderId,
-        String groupName,
+        //String id, GENERATE
+        //PlayerRequest sender, OBTAIN TO TOKEN
+        String groupName, //CUSTOM MAPPER STRING_TO_GROUP
+        //Timestamp date, GENERATE
         String title,
         String text
+        //Set<OffGroupDiscussionRequest> offGroupDiscussions, NULL
+        //Set<OffGroupReplyRequest> offGroupReplies NULL
 ) {
 }
