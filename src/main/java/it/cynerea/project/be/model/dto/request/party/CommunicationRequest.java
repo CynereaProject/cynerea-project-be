@@ -1,10 +1,9 @@
 package it.cynerea.project.be.model.dto.request.party;
 
-import it.cynerea.project.be.model.dto.request.party.id.CommunicationIdRequest;
-
-
 public record CommunicationRequest(
-        CommunicationIdRequest id,
+        String partyName,//CUSTOM MAPPER STRING_TO_PARTY
+        //PlayerRequest player, OBTAIN BY TOKEN
+        //Timestamp date, GENERATE
         Boolean isPin,
         String text
 ) {

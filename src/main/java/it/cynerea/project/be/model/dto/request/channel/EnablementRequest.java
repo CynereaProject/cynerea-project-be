@@ -1,10 +1,8 @@
 package it.cynerea.project.be.model.dto.request.channel;
 
-import it.cynerea.project.be.model.dto.request.channel.id.EnablementIdRequest;
-
-
 public record EnablementRequest(
-        EnablementIdRequest id,
+        String channelName,//CUSTOM MAPPER STRING_TO_CHANNEL
+        String groupName,//CUSTOM MAPPER STRING_TO_GROUP
         Boolean canView,
         Boolean canWrite
 ) {

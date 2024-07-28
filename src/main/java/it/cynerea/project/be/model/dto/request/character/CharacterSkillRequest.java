@@ -1,10 +1,8 @@
 package it.cynerea.project.be.model.dto.request.character;
 
-import it.cynerea.project.be.model.dto.request.character.id.CharacterSkillIdRequest;
-
-
 public record CharacterSkillRequest(
-        CharacterSkillIdRequest id
+        //CharacterDto character, //OBTAIN TO TOKEN
+        Long skillId //CUSTOM MAPPER LONG_TO_SKILL
         //Integer level INCREMENT
 ) {
 }

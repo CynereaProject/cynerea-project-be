@@ -1,10 +1,8 @@
 package it.cynerea.project.be.model.dto.request.chat;
 
-import it.cynerea.project.be.model.dto.request.chat.id.InfluenceIdRequest;
-
-
 public record InfluenceRequest(
-        InfluenceIdRequest id,
+        Long chatId,//CUSTOM MAPPER LONG_TO_CHAT
+        String partyName,//CUSTOM MAPPER STRING_T_PARTY
         Integer worth
 ) {
 }
